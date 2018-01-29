@@ -1,38 +1,38 @@
 <!DOCTYPE html>
-<html lang="en" >
+<html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <title>Tinder Animation (GSAP)</title>
-  
-  
-  
-      <link rel="stylesheet" href="css/style.css">
+	<meta charset="UTF-8">
+	<title>Tinder Animation (GSAP)</title>
 
-  
+
+
+	<link rel="stylesheet" href="css/style.css">
+
+
 </head>
 
 <body>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/plugins/CSSPlugin.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/easing/EasePack.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenLite.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.15.0/utils/Draggable.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/plugins/CSSPlugin.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/easing/EasePack.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenLite.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.15.0/utils/Draggable.min.js"></script>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 
-<link href='https://fonts.googleapis.com/css?family=Noto+Sans' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Noto+Sans' rel='stylesheet' type='text/css'>
 
-<div class="phone">
+	<div class="phone">
 
-	<div class="app">
+		<div class="app">
 
 			<div class="header">
 
 				<span class="settings"></span>
 
-				<img src="http://web.arjentienkamp.com/codepen/tinder/logo.jpg"/>
+				<img src="http://web.arjentienkamp.com/codepen/tinder/logo.jpg" />
 
 				<span class="chat"></span>
 
@@ -40,7 +40,7 @@
 
 			<div class="content">
 
-			</div>	
+			</div>
 
 			<div class="footer">
 				<div id="swipe_dislike" class="rate"></div>
@@ -50,14 +50,23 @@
 				<div id="swipe_like" class="rate"></div>
 			</div>
 
-	</div>	
+		</div>
 
-</div>
-  
-  
+	</div>
 
-    <script  src="js/index.js"></script>
 
+
+	<script src="js/index.js"></script>
+
+
+	<input class="modal-state" id="modal-1" type="checkbox" />
+	<div class="modal">
+		<label class="modal__bg" for="modal-1"></label>
+		<div class="modal__inner">
+			<label class="modal__close" for="modal-1"></label>
+			<h2 id="modal-text">Caaaats FTW!</h2>
+		</div>
+	</div>
 
 
 
