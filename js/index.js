@@ -68,10 +68,29 @@ $(document).ready(function (event) {
 
 	function swipeLike() {
 
+		var w = window,
+		d = document,
+		e = d.documentElement,
+		g = d.getElementsByTagName('body')[0],
+		screenWidth = w.innerWidth || e.clientWidth || g.clientWidth,
+		screenHeight = w.innerHeight|| e.clientHeight|| g.clientHeight;
+
+		screenWidth = screenWidth;
+
+		var photoElement = document.getElementById("photo");
+
+		var rect = photoElement.getBoundingClientRect();
+
+		var distToMoveX = screenWidth - rect.left - 400;
+
+		var distToMoveY = screenHeight - rect.bottom - 100;
+
+		console.log(rect.left);
+
 		var $photo = $("div.content").find('#photo');
 
 		var swipe = new TimelineMax({ repeat: 0, yoyo: false, repeatDelay: 0, onComplete: remove, onCompleteParams: [$photo] });
-		swipe.staggerTo($photo, 0.8, { bezier: [{ left: "+=400", top: "+=300", rotation: "60" }], ease: Power1.easeInOut });
+		swipe.staggerTo($photo, 0.8, { bezier: [{ left: "+="+distToMoveX, top: "+="+distToMoveY, rotation: "60" }], ease: Power1.easeInOut });
 
 		toggleModal();
 
@@ -80,10 +99,27 @@ $(document).ready(function (event) {
 
 	function swipeDislike() {
 
+		var w = window,
+		d = document,
+		e = d.documentElement,
+		g = d.getElementsByTagName('body')[0],
+		screenWidth = w.innerWidth || e.clientWidth || g.clientWidth,
+		screenHeight = w.innerHeight|| e.clientHeight|| g.clientHeight;
+
+		screenWidth = screenWidth;
+
+		var photoElement = document.getElementById("photo");
+
+		var rect = photoElement.getBoundingClientRect();
+
+		var distToMoveX = 0 - rect.left + 100;
+
+		var distToMoveY = screenHeight - rect.bottom - 100;
+
 		var $photo = $("div.content").find('#photo');
 
 		var swipe = new TimelineMax({ repeat: 0, yoyo: false, repeatDelay: 0, onComplete: remove, onCompleteParams: [$photo] });
-		swipe.staggerTo($photo, 0.8, { bezier: [{ left: "+=-350", top: "+=300", rotation: "-60" }], ease: Power1.easeInOut });
+		swipe.staggerTo($photo, 0.8, { bezier: [{ left: "+="+distToMoveX, top: "+="+distToMoveY, rotation: "-60" }], ease: Power1.easeInOut });
 
 		addNewProfile();
 	}
