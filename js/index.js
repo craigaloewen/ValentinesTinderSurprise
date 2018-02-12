@@ -11,9 +11,29 @@ $(document).ready(function (event) {
 
 	var photoNumber = -1;
 
-	var totalPhotoNum = 16;
+	var totalPhotoNum = 17;
 
 	addNewProfile();
+
+	function toggleCraigSwipeModal() {
+		var element = document.getElementById("modal-1");
+		var textElement = document.getElementById("modal-text");
+
+		var elementPick = photoNumber
+		
+		if (photoNumber == 1) {
+			elementPick = totalPhotoNum - 1;
+		}
+
+		var contentToWrite = 'Okay. Really funny. You cant swipe right since it would break the website!';
+
+		if (!element.checked) {
+			element.checked = true;
+			textElement.textContent = contentToWrite;
+		} else {
+			element.checked = false;
+		}
+	}
 
 	function toggleModal() {
 		var element = document.getElementById("modal-1");
@@ -40,8 +60,13 @@ $(document).ready(function (event) {
 			"He broke his first wife's poor heart, and barely ever sees his son. Not a good Dad, not a good boyfriend!", 
 			'Seriously? Really? Is unlimited milk worth dating THAT?', 
 			'His ideal dates: Drinking fresh blue milk, and doing flips with a small green alien on his back. Pass!',
-			'If he took you back to his place, you would have to go to Dagobah the swamp planet, probably get eaten by a snake on the way, and even if you did make it he would serve you soup in his weird tiny mud hut.']
+			'If he took you back to his place, you would have to go to Dagobah the swamp planet, probably get eaten by a snake on the way, and even if you did make it he would serve you soup in his weird tiny mud hut.',
+			'Definitely a keeper. He made you this entire website! You should get ready for your date!']
 			[photoNumber];
+
+		if (photoNumber == totalPhotoNum - 1) {
+			document.getElementById("modal-title").textContent = "Swipe Accepted!";
+		}
 
 		if (!element.checked) {
 			element.checked = true;
@@ -121,6 +146,11 @@ $(document).ready(function (event) {
 		var swipe = new TimelineMax({ repeat: 0, yoyo: false, repeatDelay: 0, onComplete: remove, onCompleteParams: [$photo] });
 		swipe.staggerTo($photo, 0.8, { bezier: [{ left: "+="+distToMoveX, top: "+="+distToMoveY, rotation: "-60" }], ease: Power1.easeInOut });
 
+		if (photoNumber == totalPhotoNum - 1) {
+			toggleCraigSwipeModal();
+			photoNumber--;
+		}
+
 		addNewProfile();
 	}
 
@@ -136,12 +166,12 @@ $(document).ready(function (event) {
 		var names = ['A Raccoon', 'A Goose', 'Edward Cullen', 'A Puppy', 'A really Cute Puppy',
 			'A REALLY Cute Puppy', 'Arnold Schwarzenegger', 'Ice Cream', 'Sushi', 'Lava Cake',
 			'The App Instagram', 'Oderus Urungus', 'Darth Vader', 'Star Wars Creature', 'Luke Skywalker',
-			'Yoda'][photoNumber];
+			'Yoda', 'Craig Loewen'][photoNumber];
 
 		var ages = ['8', '22', '19', '1', '2',
 			'1', '22', '0', '0', '0',
 			'0', '32', '45', '120', '14',
-			'928'][photoNumber];
+			'928','23'][photoNumber];
 
 		$("div.content").prepend('<div class="photo" id="photo" style="background-image:url(img/' + photoNumber + '.jpg)">'
 			+ '<span class="meta">'
